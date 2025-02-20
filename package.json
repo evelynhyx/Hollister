@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/evelynhyx/Hollister/issues"
   },
-  "homepage": "https://github.com/evelynhyx/Hollister#readme"
+  "homepage": "https://github.com/evelynhyx/Hollister#readme",
+  "dependencies": {
+    "mysql2": "^3.12.0"
+  }
 }

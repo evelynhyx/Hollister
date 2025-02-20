@@ -1,15 +1,35 @@
 const express = require("express");
-const path = require("path");
+const mysql = require("mysql2");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files (like your HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, "public")));
+// Create a MySQL connection
+const db = mysql.createConnection({
+    host: "localhost",      // Change if using a remote DB
+    user: "evelyn",  // Replace with your MySQL username
+    password: "68wth568",  // Replace with your MySQL password
+    database: "sys",  // Replace with your database name
+});
 
-// Serve the HTML file as the main page
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+// Connect to MySQL
+db.connect(err => {
+    if (err) {
+        console.error("Database connection failed: " + err.stack);
+        return;
+    }
+    console.log("Connected to MySQL database.");
+});
+
+// Route to fetch customers
+app.get("/customers", (req, res) => {
+    db.query("SELECT * FROM customers", (err, results) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(results);
+    });
 });
 
 // Start the server
