@@ -8,5 +8,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "Remaking the clothing website",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evelynhyx/Hollister.git"
+  },
+  "bugs": {
+    "url": "https://github.com/evelynhyx/Hollister/issues"
+  },
+  "homepage": "https://github.com/evelynhyx/Hollister#readme"
 }
