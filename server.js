@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors()); // Allows frontend to access backend
 app.use(express.json());
+app.use(express.static("public")); // Serve static files (HTML, CSS, JS)
 
 // MySQL Connection
 const db = mysql.createConnection({
@@ -26,6 +28,11 @@ db.connect(err => {
     console.log("Connected to MySQL database.");
 });
 
+// Serve index.html when visiting "/"
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // API Route to Fetch Customers
 app.get("/customers", (req, res) => {
     db.query("SELECT * FROM customers", (err, results) => {
@@ -33,7 +40,7 @@ app.get("/customers", (req, res) => {
             res.status(500).json({ error: err.message });
             return;
         }
-        console.log('/customers results:', results);
+        console.log("/customers results:", results);
         res.json(results); // Send data to frontend
     });
 });
