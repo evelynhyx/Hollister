@@ -18,10 +18,15 @@
             th {
                 background-color: #f2f2f2;
             }
+            ul {
+                list-style-type: none;
+            }
+            li {
+                display: inline;
+            }
         </style>
     </head>
     <body>
-        <p>Sign In Or Create Account</p>
         <h1>Customers Table</h1>
         <button id="loadCustomers">Load Customers</button>
 
@@ -39,6 +44,12 @@
                 <!-- Customer data will be inserted here -->
             </tbody>
         </table>
+        <ul>
+            <li>Women's Clothes</li>
+            <li>Men's Clothes</li>
+            <li>Children's Clothes</li>
+            <li>About Us</li>
+        </ul>
         
         <script>
             document.getElementById("loadCustomers").addEventListener("click", fetchCustomers);
