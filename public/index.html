@@ -18,11 +18,94 @@
             th {
                 background-color: #f2f2f2;
             }
-            ul {
-                list-style-type: none;
+
+            .navbar {
+                background: white;
+                padding: 10px 0;
             }
-            li {
-                display: inline;
+
+            .nav-menu {
+                display: flex;
+                list-style: none;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .nav-item {
+                position: relative;
+            }
+
+            .nav-link {
+                font-weight: bold;
+                text-decoration: none;
+                color: black;
+                padding: 10px 15px;
+                display: block;
+                position: relative;
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background: black;
+                transition: width 0.3s ease-in-out;
+            }
+
+            .nav-item:hover .nav-link::after {
+                width: 100%;
+            }
+
+            .dropdown {
+                position: absolute;
+                left: 0;
+                top: 100%;
+                background: white;
+                display: none;
+                width: max-content;
+                padding: 10px 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-item:hover .dropdown {
+                display: block;
+            }
+
+            .dropdown-menu {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .dropdown-menu li {
+                padding: 8px 15px;
+                position: relative;
+            }
+
+            .dropdown-menu li a {
+                text-decoration: none;
+                color: black;
+                display: block;
+            }
+
+            .dropdown-menu li::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 1px;
+                background: black;
+                transition: width 0.3s ease-in-out;
+            }
+
+            .dropdown-menu li:hover::after {
+                width: 100%;
             }
         </style>
     </head>
@@ -44,12 +127,31 @@
                 <!-- Customer data will be inserted here -->
             </tbody>
         </table>
-        <ul>
-            <li>Women's Clothes</li>
-            <li>Men's Clothes</li>
-            <li>Children's Clothes</li>
-            <li>About Us</li>
-        </ul>
+
+        <nav class="navbar">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#" class="nav-link">Women</a>
+                <div class="dropdown">
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Tops</a></li>
+                    <li><a href="#">Jeans</a></li>
+                    <li><a href="#">Dresses</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Men</a>
+                <div class="dropdown">
+                  <ul class="dropdown-menu">
+                    <li><a href="#">T-Shirts</a></li>
+                    <li><a href="#">Pants</a></li>
+                    <li><a href="#">Jackets</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+        </nav>
         
         <script>
             document.getElementById("loadCustomers").addEventListener("click", fetchCustomers);
