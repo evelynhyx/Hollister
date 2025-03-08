@@ -3,112 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../styles/styles.css">
         <title>Hollister</title>
-        <style>
-            table {
-                width: 100%;
-                border-collapse: collapse;
-                margin-top: 20px;
-            }
-            th, td {
-                border: 1px solid black;
-                padding: 8px;
-                text-align: left;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-
-            .navbar {
-                background: white;
-                padding: 10px 0;
-            }
-
-            .nav-menu {
-                display: flex;
-                list-style: none;
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .nav-item {
-                position: relative;
-            }
-
-            .nav-link {
-                font-weight: bold;
-                text-decoration: none;
-                color: black;
-                padding: 10px 15px;
-                display: block;
-                position: relative;
-            }
-
-            .nav-link::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 0;
-                height: 2px;
-                background: black;
-                transition: width 0.3s ease-in-out;
-            }
-
-            .nav-item:hover .nav-link::after {
-                width: 100%;
-            }
-
-            .dropdown {
-                position: absolute;
-                left: 0;
-                top: 100%;
-                background: white;
-                display: none;
-                width: max-content;
-                padding: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-item:hover .dropdown {
-                display: block;
-            }
-
-            .dropdown-menu {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .dropdown-menu li {
-                padding: 8px 15px;
-                position: relative;
-            }
-
-            .dropdown-menu li a {
-                text-decoration: none;
-                color: black;
-                display: block;
-            }
-
-            .dropdown-menu li::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                width: 0;
-                height: 1px;
-                background: black;
-                transition: width 0.3s ease-in-out;
-            }
-
-            .dropdown-menu li:hover::after {
-                width: 100%;
-            }
-        </style>
     </head>
     <body>
         <h1>Customers Table</h1>
@@ -130,9 +26,10 @@
         </table>
 
         <nav class="navbar">
+            <div class="logo">HOLLISTER</div>
             <ul class="nav-menu">
               <li class="nav-item">
-                <a href="#" class="nav-link">Women</a>
+                <a href="#" class="nav-link">Women's</a>
                 <div class="dropdown">
                   <ul class="dropdown-menu">
                     <li><a href="#">Tops</a></li>
@@ -142,7 +39,7 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Men</a>
+                <a href="#" class="nav-link">Men's</a>
                 <div class="dropdown">
                   <ul class="dropdown-menu">
                     <li><a href="#">T-Shirts</a></li>
@@ -151,34 +48,32 @@
                   </ul>
                 </div>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Kids</a>
+                <div class="dropdown">
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Tops</a></li>
+                    <li><a href="#">Bottoms</a></li>
+                    <li><a href="#">Jeans</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link" id="sale-section">Sale</a>
+                <div class="dropdown">
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Women's</a></li>
+                    <li><a href="#">Men's</a></li>
+                    <li><a href="#">Kids</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">About Us</a>
+              </li>
             </ul>
         </nav>
         
-        <script>
-            document.getElementById("loadCustomers").addEventListener("click", fetchCustomers);
-            function fetchCustomers() {
-                console.log("fetchCustomers");
-                fetch("http://localhost:3000/customers")  // Fetch from backend
-                    .then(response => response.json())  // Convert response to JSON
-                    .then(data => {
-                        console.log("Customers:", data);  // Debugging
-                        const tableBody = document.getElementById("customersTable").getElementsByTagName("tbody")[0];
-        
-                        // Clear existing rows
-                        tableBody.innerHTML = "";
-        
-                        // Loop through customers and create table rows
-                        data.forEach(customer => {
-                            let row = tableBody.insertRow();
-                            row.insertCell(0).innerText = customer.customer_id;
-                            row.insertCell(1).innerText = customer.first_name;
-                            row.insertCell(2).innerText = customer.last_name;
-                            row.insertCell(3).innerText = customer.email;
-                            row.insertCell(4).innerText = customer.creation_date;
-                        });
-                    })
-                    .catch(error => console.error("Error fetching customers:", error));
-            }
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
