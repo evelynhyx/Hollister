@@ -2,9 +2,14 @@ const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
 const path = require("path");
+const http = require("http");
+const WebSocket = require("ws");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Create HTTP Server
+const server = http.createServer(app);
 
 // Middleware
 app.use(cors()); // Allows frontend to access backend
@@ -45,7 +50,23 @@ app.get("/customers", (req, res) => {
     });
 });
 
+// Attach WebSocket Server
+const wss = new WebSocket.Server({ server });
+
+wss.on("connection", ws => {
+    console.log("New WebSocket connection");
+
+    ws.on("message", message => {
+        console.log("Received:", message);
+        ws.send("Message received!");
+    });
+
+    ws.on("close", () => {
+        console.log("Client disconnected");
+    });
+});
+
 // Start Server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+server.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });

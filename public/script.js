@@ -22,3 +22,49 @@ function fetchCustomers() {
         })
         .catch(error => console.error("Error fetching customers:", error));
 }
+
+const socket = new WebSocket("ws://localhost:3000");
+
+socket.onopen = () => {
+    console.log("Connected to WebSocket server");
+};
+
+socket.onmessage = event => {
+    const customers = JSON.parse(event.data);
+    console.log("Received update:", customers);
+    displayCustomers(customers);
+};
+
+socket.onclose = () => {
+    console.log("WebSocket connection closed");
+};
+
+function displayCustomers(customers) {
+    const container = document.getElementById("customers-list");
+    container.innerHTML = ""; // Clear previous content
+
+    customers.forEach(customer => {
+        const div = document.createElement("div");
+        div.classList.add("customer-item");
+        div.innerHTML = `<strong>${customer.name}</strong> - ${customer.email}`;
+        container.appendChild(div);
+    });
+}
+
+// Testing if WebSocket works
+socket.onopen = () => {
+    console.log("Connected to WebSocket server");
+    socket.send("Hello from client!");
+};
+
+socket.onmessage = (event) => {
+    console.log("Message from server:", event.data);
+};
+
+socket.onerror = (error) => {
+    console.error("WebSocket Error:", error);
+};
+
+socket.onclose = () => {
+    console.log("WebSocket connection closed");
+};

@@ -38,7 +38,7 @@ th {
 .nav-link {
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: rgb(60, 60, 60);
     padding: 10px 15px;
     display: block;
     position: relative;
@@ -106,6 +106,10 @@ th {
 
 .dropdown-menu li:hover::after {
     width: 100%;
+}
+
+.nav-link:hover {
+    color: #000000;
 }
 
 #sale-section {
