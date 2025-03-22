@@ -1,4 +1,4 @@
-document.getElementById("loadCustomers").addEventListener("click", fetchCustomers);
+document.getElementById("loadCustomers").addEventListener("click", fetchCustomers)
 function fetchCustomers() {
     console.log("fetchCustomers");
     fetch("http://localhost:3000/customers")  // Fetch from backend
@@ -50,21 +50,3 @@ function displayCustomers(customers) {
         container.appendChild(div);
     });
 }
-
-// Testing if WebSocket works
-socket.onopen = () => {
-    console.log("Connected to WebSocket server");
-    socket.send("Hello from client!");
-};
-
-socket.onmessage = (event) => {
-    console.log("Message from server:", event.data);
-};
-
-socket.onerror = (error) => {
-    console.error("WebSocket Error:", error);
-};
-
-socket.onclose = () => {
-    console.log("WebSocket connection closed");
-};
