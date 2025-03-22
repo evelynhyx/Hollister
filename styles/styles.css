@@ -3,11 +3,13 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
 }
+
 th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
 }
+
 th {
     background-color: #f2f2f2;
 }
@@ -110,8 +112,4 @@ th {
 
 .nav-link:hover {
     color: #000000;
-}
-
-#sale-section {
-    color: red;
 }
