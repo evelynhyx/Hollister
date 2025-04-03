@@ -19,13 +19,6 @@ th {
     padding: 10px 0;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    text-align: left;
-}
-
 .nav-menu {
     display: flex;
     list-style: none;
@@ -112,4 +105,84 @@ th {
 
 .nav-link:hover {
     color: #000000;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.logo img {
+    height: 40px; /* Adjust logo size */
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+#search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#search-form button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.top-bar-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.top-bar-links a:hover {
+    color: gray;
+}
+
+/* Styles for smaller screens (Phones & Tablets) */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;  /* Stack items vertically */
+        align-items: center;
+        padding: 10px;
+    }
+
+    .logo img {
+        height: 30px; /* Smaller logo */
+    }
+
+    #search-form {
+        width: 100%; /* Full width search bar */
+        margin-top: 10px;
+    }
+
+    #search-input {
+        padding: 6px;
+    }
+
+    .top-bar-links {
+        margin-top: 10px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .top-bar-links a {
+        font-size: 14px; /* Smaller font */
+    }
 }
