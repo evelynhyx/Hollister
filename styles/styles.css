@@ -60,7 +60,7 @@ th {
     top: 100%;
     background: white;
     display: none;
-    width: max-content;
+    width: 100%;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
