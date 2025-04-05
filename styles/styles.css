@@ -14,9 +14,18 @@ th {
     background-color: #f2f2f2;
 }
 
+body {
+    padding-top: 80px; /* Must match navbar height */
+}
+
 .navbar {
     background: white;
     padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 80px;
+    padding: 0 20px;
 }
 
 .nav-menu {
@@ -113,10 +122,6 @@ th {
     justify-content: space-around;
     background: white;
     padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-    position: fixed;
-    width: 100%;
-    top: 0;
 }
 
 .logo img {
@@ -130,7 +135,7 @@ th {
 }
 
 #search-input {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -168,7 +173,7 @@ th {
     }
 
     #search-form {
-        width: 100%; /* Full width search bar */
+        width: 80%; /* Full width search bar */
         margin-top: 10px;
     }
 
