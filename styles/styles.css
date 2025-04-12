@@ -14,19 +14,15 @@ th {
     background-color: #f2f2f2;
 }
 
-body {
-    padding-top: 80px; /* Must match navbar height */
-}
-
 .navbar {
     background: white;
-    padding: 10px 0;
-    position: fixed;
+    padding: 10px 20px;
+    padding-top: 5px;
+    position: sticky;
     width: 100%;
     top: 0;
-    height: 80px;
+    height: 60px;
     z-index: 1000;
-    padding: 0 20px;
 }
 
 .nav-menu {
@@ -191,4 +187,8 @@ body {
     .top-bar-links a {
         font-size: 14px; /* Smaller font */
     }
+}
+
+.banner-img {
+    width: 100%;
 }
