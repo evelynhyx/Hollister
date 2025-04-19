@@ -13,12 +13,49 @@
               <input type="email" id="login-email" placeholder="Email" required aria-label="Email" />
               <input type="password" id="login-password" placeholder="Password" required aria-label="Password" />
               <button type="submit">Login</button>
-              <a href="/forgot-password" class="forgot-password">Forgot Password?</a>
+              <a href="/forgot-password.html" class="forgot-password">Forgot Password?</a>
               <p id="login-error" class="error-message"></p>
             </form>
             <p class="signup-link">
-              Don't have an account? <a href="/signup">Sign up</a>
+              Don't have an account? <a href="/signup.html">Sign up</a>
             </p>
           </div>
+
+          <script>
+                // Handle login form submission
+                const loginForm = document.getElementById('login-form');
+                loginForm.addEventListener('submit', async (event) => {
+                  event.preventDefault();
+                  const email = document.getElementById('login-email').value;
+                  const password = document.getElementById('login-password').value;
+                  const errorMessage = document.getElementById('login-error');
+                  const button = loginForm.querySelector('button');
+
+                  button.disabled = true;
+                  button.textContent = 'Logging in...';
+
+                  try {
+                    const response = await fetch('/auth/login', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ email, password }),
+                    });
+
+                    const result = await response.json();
+                    if (response.ok) {
+                      window.location.href = '/'; // Redirect to homepage on success
+                    } else {
+                      errorMessage.textContent = result.error || 'Invalid email or password';
+                      errorMessage.style.display = 'block';
+                    }
+                  } catch (error) {
+                    errorMessage.textContent = 'An error occurred. Please try again.';
+                    errorMessage.style.display = 'block';
+                  } finally {
+                    button.disabled = false;
+                    button.textContent = 'Login';
+                  }
+                });
+          </script>
     </body>
 </html>
