@@ -3,18 +3,165 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/styles.css">
+        <link rel="stylesheet" href="../../styles/styles.css">
         <title>Login Page</title>
+        <style>
+          /* Reset default styles */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9; /* Light background for airy feel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+          }
+
+          .auth-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+          }
+
+          .auth-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 1px;
+          }
+
+          .auth-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+          }
+
+          .auth-toggle button {
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: #666;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+          }
+
+          .auth-toggle button.active {
+            color: #d4a5a5; /* Soft pastel pink */
+            border-bottom: 2px solid #d4a5a5;
+          }
+
+          .auth-form {
+            display: none;
+          }
+
+          .auth-form.active {
+            display: block;
+          }
+
+          .auth-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px; /* Rounded corners for a soft look */
+            font-size: 14px;
+            color: #333;
+            background-color: #fafafa;
+            outline: none;
+            transition: border-color 0.3s ease;
+          }
+
+          .auth-form input:focus {
+            border-color: #d4a5a5;
+          }
+
+          .auth-form .forgot-password {
+            display: block;
+            margin: 10px 0;
+            font-size: 12px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+
+          .auth-form .forgot-password:hover {
+            color: #d4a5a5;
+          }
+
+          .auth-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d4a5a5; /* Soft pastel pink */
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+          }
+
+          .auth-form button:hover {
+            background-color: #c49090; /* Slightly darker pink on hover */
+          }
+
+          .auth-form button:disabled {
+            background-color: #e0e0e0;
+            cursor: not-allowed;
+          }
+
+          .error-message {
+            color: #e74c3c; /* Subtle red for errors */
+            font-size: 14px;
+            margin-top: 10px;
+            display: none;
+          }
+
+          /* Responsive design */
+          @media (max-width: 480px) {
+            .auth-container {
+              padding: 20px;
+              margin: 20px;
+            }
+
+            .auth-container h2 {
+              font-size: 20px;
+            }
+
+            .auth-toggle button {
+              font-size: 14px;
+            }
+
+            .auth-form input,
+            .auth-form button {
+              font-size: 14px;
+              padding: 10px;
+            }
+          }
+        </style>
     </head>
     <body>
         <div class="auth-container">
             <h2>Login</h2>
             <form id="login-form" class="auth-form">
-              <input type="email" id="login-email" placeholder="Email" required aria-label="Email" />
-              <input type="password" id="login-password" placeholder="Password" required aria-label="Password" />
-              <button type="submit">Login</button>
-              <a href="/forgot-password.html" class="forgot-password">Forgot Password?</a>
+              <input type="email" id="login-email" placeholder="Email" required aria-label="Email" /><br>
+              <input type="password" id="login-password" placeholder="Password" required aria-label="Password" /><br>
+              <button type="submit">Login</button><br>
+              <a href="/forgot-password.html" class="forgot-password">Forgot Password?</a><br>
               <p id="login-error" class="error-message"></p>
+              <br>
             </form>
             <p class="signup-link">
               Don't have an account? <a href="/signup.html">Sign up</a>
