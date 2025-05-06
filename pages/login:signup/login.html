@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
         <title>Login Page</title>
         <style>
           /* Reset default styles */
@@ -14,8 +14,8 @@
           }
 
           body {
-            font-family: 'Georgia', serif; /* Vintage-inspired serif font */
-            background-color: #cab7a1; /* Light beige solid background */
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -31,7 +31,7 @@
             width: 100%;
             max-width: 400px;
             text-align: center;
-            border: 2px solid #b29576; /* Muted taupe border for vintage feel */
+            border: 2px solid #ffffff;
             position: relative;
             /* Add a decorative top border */
             border-top: 4px solid #811112; /* Deep red accent */
@@ -43,7 +43,7 @@
             font-size: 28px;
             font-weight: normal;
             letter-spacing: 2px;
-            font-family: 'Cinzel', serif; /* Ornate vintage font for headings */
+            font-family: 'Outfit', sans-serif;
             text-transform: uppercase;
           }
 
@@ -51,32 +51,32 @@
             width: 100%;
             padding: 12px 15px;
             margin: 10px 0;
-            border: 1px solid #b29576; /* Muted taupe border */
+            border: 1px solid #811112;
             border-radius: 5px;
             font-size: 14px;
             color: #811112; /* Deep red text */
             background-color: #fff;
             outline: none;
             transition: border-color 0.3s ease;
-            font-family: 'Georgia', serif;
+            font-family: 'Open Sans', sans-serif;
           }
 
           .auth-form input:focus {
-            border-color: #811112; /* Deep red on focus */
+            border-color: #6c0e10; /* Deep red on focus */
           }
 
           .auth-form .forgot-password {
             display: block;
             margin: 10px 0;
             font-size: 12px;
-            color: #b29576; /* Muted taupe for links */
+            color: #811112;
             text-decoration: none;
             transition: color 0.3s ease;
-            font-family: 'Georgia', serif;
+            font-family: 'Open Sans', sans-serif;
           }
 
           .auth-form .forgot-password:hover {
-            color: #811112; /* Deep red on hover */
+            color: #6c0e10; /* Deep red on hover */
           }
 
           .auth-form button {
@@ -89,18 +89,18 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            font-family: 'Cinzel', serif;
+            font-family: 'Outfit', sans-serif;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 10px;
           }
 
           .auth-form button:hover {
-            background-color: #540a0b; /* Slightly darker red on hover */
+            background-color: #6c0e10; /* Slightly darker red on hover */
           }
 
           .auth-form button:disabled {
-            background-color: #b29576; /* Muted taupe when disabled */
+            background-color: #000000;
             cursor: not-allowed;
           }
 
@@ -109,14 +109,14 @@
             font-size: 14px;
             margin-top: 10px;
             display: none;
-            font-family: 'Georgia', serif;
+            font-family: 'Open Sans', sans-serif;
           }
 
           .signup-link {
             margin-top: 20px;
             font-size: 14px;
-            color: #b29576; /* Muted taupe for text */
-            font-family: 'Georgia', serif;
+            color: #000000;
+            font-family: 'Open Sans', sans-serif;
           }
 
           .signup-link a {
@@ -126,7 +126,7 @@
           }
 
           .signup-link a:hover {
-            color: #540a0b; /* Darker red on hover */
+            color: #6c0e10; /* Darker red on hover */
           }
 
           /* Decorative elements (optional vintage flourish) */
@@ -138,7 +138,6 @@
             transform: translateX(-50%);
             width: 50px;
             height: 10px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23811112" stroke-width="2"><path d="M12 3c-4 0-8 4-8 8s4 8 8 8 8-4 8-8-4-8-8-8zm0 14c-3 0-6-3-6-6s3-6 6-6 6 3 6 6-3 6-6 6z"/></svg>') no-repeat center;
           }
 
           /* Responsive design */
@@ -171,9 +170,8 @@
               <input type="email" id="login-email" placeholder="Email" required aria-label="Email" /><br>
               <input type="password" id="login-password" placeholder="Password" required aria-label="Password" /><br>
               <button type="submit">Login</button><br>
-              <a href="../login:signup/forgot-password.html" class="forgot-password">Forgot Password?</a><br>
+              <a href="../login:signup/forgot-password.html" class="forgot-password">Forgot Password?</a>
               <p id="login-error" class="error-message"></p>
-              <br>
             </form>
             <p class="signup-link">
               Don't have an account? <a href="/signup.html">Sign up</a>

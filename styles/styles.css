@@ -1,4 +1,4 @@
-table {
+/* table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -12,6 +12,10 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+} */
+
+body {
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar {
@@ -37,7 +41,8 @@ th {
 }
 
 .nav-link {
-    font-weight: bold;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
     text-decoration: none;
     color: rgb(60, 60, 60);
     padding: 10px 15px;
@@ -61,6 +66,7 @@ th {
 }
 
 .dropdown {
+    font-family: 'Open Sans', sans-serif;
     position: absolute;
     left: 0;
     top: 100%;
@@ -122,7 +128,7 @@ th {
 }
 
 .logo img {
-    height: 40px; /* Adjust logo size */
+    width: 15%; /* Adjust logo size */
 }
 
 #search-form {
@@ -146,10 +152,11 @@ th {
 }
 
 .top-bar-links a {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
     margin-left: 20px;
     text-decoration: none;
     color: black;
-    font-weight: bold;
     transition: color 0.3s;
 }
 
