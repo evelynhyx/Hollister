@@ -77,6 +77,7 @@
 
           .auth-form .forgot-password:hover {
             color: #6c0e10; /* Deep red on hover */
+            text-decoration: underline;
           }
 
           .auth-form button {
@@ -127,6 +128,21 @@
 
           .signup-link a:hover {
             color: #6c0e10; /* Darker red on hover */
+            text-decoration: underline;
+          }
+
+          .back {
+            margin: 10px 0;
+            font-size: 12px;
+            color: #811112;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+          }
+
+          .back:hover {
+            color: #6c0e10; /* Deep red on hover */
+            text-decoration: underline;
           }
 
           /* Decorative elements (optional vintage flourish) */
@@ -176,6 +192,8 @@
             <p class="signup-link">
               Don't have an account? <a href="/signup.html">Sign up</a>
             </p>
+            <br>
+            <a href="../../public/index.html" class="back">Back</a>
           </div>
 
           <script>

@@ -12,13 +12,24 @@
         <div class="logo">
             <a href="index.html"><img src="../assets/images/logo.svg" alt="Logo"></a>
         </div>
-        <form id="search-form">
+        <!-- <form id="search-form">
             <input type="text" id="search-input" placeholder="Search..." />
             <button type="submit">🔍</button>
-        </form>
+        </form> -->
+        <button id="openSearchModal" class="search-icon-btn">🔍</button>
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="search-modal">
+          <div class="search-modal-content">
+            <span id="closeSearchModal" class="close-btn">&times;</span>
+            <input type="text" placeholder="Search..." class="search-input" />
+            <button class="search-submit">Search</button>
+          </div>
+        </div>
+        
         <div class="top-bar-links">
             <a href="../pages/login:signup/login.html">Login</a>
-            <a href="#">Cart</a>
+            <a href="../pages/cart/cart.html">Cart</a>
         </div>
     </div>
         <nav class="navbar">
@@ -27,10 +38,10 @@
                 <a href="#" class="nav-link">All Categories</a>
                 <div class="dropdown">
                   <ul class="dropdown-menu">
-                    <li><a href="#">Stickers</a></li>
-                    <li><a href="#">Cards</a></li>
-                    <li><a href="#">Prints</a></li>
-                    <li><a href="#">Sets</a></li>
+                    <li><a href="../pages/stickers.html">Stickers</a></li>
+                    <li><a href="../pages/cards.html">Cards</a></li>
+                    <li><a href="../pages/prints.html">Prints</a></li>
+                    <li><a href="../pages/sets.html">Sets</a></li>
                   </ul>
                 </div>
               </li>
@@ -38,13 +49,13 @@
                 <a href="../pages/newest.html" class="nav-link">Newest</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Stickers</a>
+                <a href="../pages/stickers.html" class="nav-link">Stickers</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Cards</a>
+                <a href="../pages/cards.html" class="nav-link">Cards</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">About</a>
+                <a href="../pages/about.html" class="nav-link">About</a>
               </li>
             </ul>
         </nav>
