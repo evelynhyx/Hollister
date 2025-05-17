@@ -124,7 +124,7 @@ body {
     align-items: center;
     justify-content: space-around;
     background: white;
-    padding: 10px 20px;
+    padding: 8px;
 }
 
 .logo img {
@@ -167,7 +167,7 @@ body {
 .search-modal-content {
   background-color: #fff;
   margin: 15% auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 12px;
   width: 90%;
   max-width: 400px;
@@ -192,7 +192,7 @@ body {
 
 .search-submit {
   margin-top: 10px;
-  padding: 8px 20px;
+  padding: 8px 10px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -200,13 +200,31 @@ body {
 .search-icon-btn {
   background: none;
   border: none;
-  font-size: 24px;
+  padding: 0;
   cursor: pointer;
 }
 
+.search-icon-image {
+  width: 20px;
+  height: 20px;
+  display: flex;
+}
+
+.login-icon-image {
+    width: 25px;
+    height: 25px;
+    display: flex;
+}
+
+.cart-icon-image {
+    width: 25px;
+    height: 25px;
+    display: flex;
+}
+
 .top-bar-links a {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 500;
+    display: inline-block;
+    padding-left: 10px;
     margin-left: 20px;
     text-decoration: none;
     color: black;
