@@ -210,16 +210,28 @@ body {
   display: flex;
 }
 
+.search-icon-image:hover {
+  transform: scale(1.15);
+}
+
 .login-icon-image {
     width: 25px;
     height: 25px;
     display: flex;
 }
 
+.login-icon-image:hover {
+  transform: scale(1.15);
+}
+
 .cart-icon-image {
     width: 25px;
     height: 25px;
     display: flex;
+}
+
+.cart-icon-image:hover {
+  transform: scale(1.15);
 }
 
 .top-bar-links a {
@@ -277,4 +289,47 @@ body {
     text-decoration: none;
     color: rgb(0, 0, 0);
     text-align: center;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping to next line */
+    gap: 10px 20px; /* spacing between products */
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.product-box {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.product-image:hover {
+  transform: scale(1.05);
+}
+
+.product-name {
+    font-family: 'Outfit', sans-serif;
+}
+
+.product-cost {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: #811112;
+}
+
+@media (max-width: 600px) {
+  .product-box {
+    width: 100%;
+  }
 }
