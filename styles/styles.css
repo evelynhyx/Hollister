@@ -208,6 +208,7 @@ body {
   width: 20px;
   height: 20px;
   display: flex;
+  transition: transform 0.2s;
 }
 
 .search-icon-image:hover {
@@ -218,6 +219,7 @@ body {
     width: 25px;
     height: 25px;
     display: flex;
+    transition: transform 0.2s;
 }
 
 .login-icon-image:hover {
@@ -228,6 +230,7 @@ body {
     width: 25px;
     height: 25px;
     display: flex;
+    transition: transform 0.2s;
 }
 
 .cart-icon-image:hover {
