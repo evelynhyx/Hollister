@@ -1,4 +1,4 @@
-document.getElementById("loadCustomers").addEventListener("click", fetchCustomers)
+/* document.getElementById("loadCustomers").addEventListener("click", fetchCustomers)
 function fetchCustomers() {
     console.log("fetchCustomers");
     fetch("http://localhost:3000/customers")  // Fetch from backend
@@ -21,7 +21,7 @@ function fetchCustomers() {
             });
         })
         .catch(error => console.error("Error fetching customers:", error));
-}
+} */
 
 const socket = new WebSocket("ws://localhost:3000");
 

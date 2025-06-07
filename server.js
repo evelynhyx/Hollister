@@ -50,6 +50,31 @@ app.get("/customers", (req, res) => {
     });
 });
 
+app.post("/api/login", (req, res) => {
+    const { email, password } = req.body;
+    console.log(`Email: ${email}, Password: ${password}`)
+    // Validate input
+    if (!email || !password) {
+        return res.status(400).json({ message: "Email and password are required." });
+    }
+
+    const sql = "SELECT * FROM customers WHERE email = ? AND password = ?";
+    db.query(sql, [email, password], (err, results) => {
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).json({ message: "Server error" });
+        }
+
+        if (results.length > 0) {
+            // User found
+            res.json({ message: "Login successful", user: results[0] });
+        } else {
+            // No user found
+            res.status(401).json({ message: "Invalid email or password" });
+        }
+    });
+});
+
 // Attach WebSocket Server
 const wss = new WebSocket.Server({ server });
 
