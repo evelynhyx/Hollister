@@ -336,3 +336,45 @@ body {
     width: 100%;
   }
 }
+
+/* .addToCartButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  border-color: #811112;
+  border-width: 2px;
+  border-radius: 5px;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.addToCartButton:hover {
+  border-width: 2.5px;
+} */
+
+.addToCartButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #fff;
+  border: 2.5px solid transparent; /* Set consistent border width */
+  border-radius: 5px;
+  color: #000000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  font-family: 'Outfit', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  box-sizing: border-box; /* Prevents padding/border from affecting size */
+}
+
+.addToCartButton:hover {
+  border-color: #811112; /* Just change the color, not the width */
+}

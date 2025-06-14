@@ -285,6 +285,103 @@
                 color: rgb(0, 0, 0);
                 text-align: center;
             }
+
+            .cart-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .cart-table th,
+            .cart-table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #dee2e6; /* Light gray border */
+            }
+
+            .cart-table th {
+                background-color: #e9ecef; /* Light gray header */
+                font-weight: bold;
+            }
+
+            .cart-table .item-actions {
+                display: flex;
+                gap: 10px;
+            }
+
+            .cart-table .quantity {
+                width: 60px;
+                padding: 5px;
+                border: 1px solid #ced4da; /* Light gray border */
+                border-radius: 4px;
+                text-align: center;
+            }
+
+            .cart-table button {
+                padding: 5px 10px;
+                background-color: #dc3545; /* Red for remove */
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .cart-table button:hover {
+                background-color: #c82333; /* Darker red on hover */
+            }
+
+            .cart-summary {
+                text-align: right;
+                margin-bottom: 20px;
+            }
+
+            .cart-summary p {
+                font-size: 16px;
+                margin: 10px 0;
+            }
+
+            .cart-summary .total {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .cart-actions {
+                text-align: right;
+            }
+
+            .cart-actions button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                background-color: #007bff; /* Blue for primary actions */
+                color: #fff;
+                font-size: 14px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+            .cart-actions button:hover {
+                background-color: #0056b3; /* Darker blue on hover */
+            }
+
+            .cart-actions button:disabled {
+                background-color: #6c757d; /* Gray when disabled */
+                cursor: not-allowed;
+            }
+
+            #empty-cart-message {
+                text-align: center;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                display: none;
+            }
+
+            #empty-cart-message p {
+                font-size: 16px;
+            }
         </style>
     </head>
     <body>
@@ -343,5 +440,138 @@
         </nav>
 
         <h1 class="title">Cart</h1>
+        
+        <table class="cart-table">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="cart-items"></tbody>
+        </table>
+        <div class="cart-summary" id="cart-summary">
+            <p>Total: $<span id="cart-total">0.00</span></p>
+        </div>
+        <div class="cart-actions">
+            <button id="update-cart">Update Cart</button>
+            <button id="checkout">Proceed to Checkout</button>
+        </div>
+        <div id="empty-cart-message">
+            <p>Your cart is empty.</p>
+        </div>
+        </div>
+
+        <script>
+        // Mock cart data (to be replaced with real data from your application)
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Function to render cart items
+        function renderCart() {
+            const cartItems = document.getElementById('cart-items');
+            const emptyCartMessage = document.getElementById('empty-cart-message');
+            cartItems.innerHTML = '';
+
+            if (cart.length === 0) {
+            emptyCartMessage.style.display = 'block';
+            document.getElementById('cart-summary').style.display = 'none';
+            document.querySelector('.cart-actions').style.display = 'none';
+            return;
+            }
+
+            emptyCartMessage.style.display = 'none';
+            document.getElementById('cart-summary').style.display = 'block';
+            document.querySelector('.cart-actions').style.display = 'block';
+
+            cart.forEach((item, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td><input type="number" min="1" value="${item.quantity}" data-index="${index}" /></td>
+                <td>$${item.subtotal.toFixed(2)}</td>
+                <td><button data-index="${index}">Remove</button></td>
+            `;
+            cartItems.appendChild(row);
+            });
+
+            updateTotal();
+        }
+
+        // Function to update the total
+        function updateTotal() {
+            const total = cart.reduce((sum, item) => sum + item.subtotal, 0);
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+        }
+
+        // Function to update cart item quantities
+        function updateCartItem(index, quantity) {
+            if (quantity < 1) quantity = 1;
+            cart[index].quantity = quantity;
+            cart[index].subtotal = cart[index].price * cart[index].quantity;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Function to remove cart item
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        // Event delegation for quantity updates and removals
+        document.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+            const index = event.target.getAttribute('data-index');
+            if (event.target.textContent === 'Remove') {
+                removeCartItem(index);
+            }
+            }
+        });
+
+        document.addEventListener('change', (event) => {
+            if (event.target.tagName === 'INPUT' && event.target.type === 'number') {
+            const index = event.target.getAttribute('data-index');
+            const quantity = parseInt(event.target.value);
+            updateCartItem(index, quantity);
+            }
+        });
+
+        // Update cart button
+        document.getElementById('update-cart').addEventListener('click', () => {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+            const index = input.getAttribute('data-index');
+            const quantity = parseInt(input.value);
+            updateCartItem(index, quantity);
+            });
+        });
+
+        // Checkout button (placeholder functionality)
+        document.getElementById('checkout').addEventListener('click', () => {
+            if (cart.length > 0) {
+            alert('Proceeding to checkout with ' + cart.length + ' items.');
+            // Replace with actual checkout logic (e.g., redirect to a checkout page)
+            } else {
+            alert('Your cart is empty.');
+            }
+        });
+
+        // Initial render
+        renderCart();
+
+        // Example: Add a sample item to the cart for testing
+        // Remove this after integrating with your product selection
+        if (cart.length === 0) {
+            cart.push({ name: 'Vintage Pen', price: 5.99, quantity: 2, subtotal: 11.98 });
+            cart.push({ name: 'Craft Paper', price: 3.49, quantity: 1, subtotal: 3.49 });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            renderCart();
+        }
+        </script>
     </body>
 </html>
