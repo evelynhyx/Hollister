@@ -131,7 +131,7 @@ body {
     width: 15%; /* Adjust logo size */
 }
 
-/* #search-form {
+#search-form {
     display: flex;
     align-items: center;
     width: 40%;
@@ -149,7 +149,7 @@ body {
     border: none;
     font-size: 16px;
     cursor: pointer;
-} */
+}
 
 /* Modal styles */
 .search-modal {

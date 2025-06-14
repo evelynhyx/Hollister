@@ -3,9 +3,345 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
         <title>Cart</title>
+        <style>
+            body {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            .navbar {
+                background: white;
+                padding: 10px 20px;
+                padding-top: 5px;
+                position: sticky;
+                width: 100%;
+                top: 0;
+                height: 60px;
+                z-index: 1000;
+            }
+
+            .nav-menu {
+                display: flex;
+                list-style: none;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .nav-item {
+                position: relative;
+            }
+
+            .nav-link {
+                font-family: 'Outfit', sans-serif;
+                font-weight: 500;
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                padding: 10px 15px;
+                display: block;
+                position: relative;
+            }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                background: black;
+                transition: width 0.3s ease-in-out;
+            }
+
+            .nav-item:hover .nav-link::after {
+                width: 100%;
+            }
+
+            .dropdown {
+                font-family: 'Open Sans', sans-serif;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                background: white;
+                display: none;
+                width: 100%;
+                padding: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-item:hover .dropdown {
+                display: block;
+            }
+
+            .dropdown-menu {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .dropdown-menu li {
+                padding: 8px 15px;
+                position: relative;
+            }
+
+            .dropdown-menu li a {
+                text-decoration: none;
+                color: black;
+                display: block;
+            }
+
+            .dropdown-menu li::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 1px;
+                background: black;
+                transition: width 0.3s ease-in-out;
+            }
+
+            .dropdown-menu li:hover::after {
+                width: 100%;
+            }
+
+            .nav-link:hover {
+                color: #000000;
+            }
+
+            .top-bar {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                background: white;
+                padding: 8px;
+            }
+
+            .logo img {
+                width: 15%; /* Adjust logo size */
+            }
+
+            #search-form {
+                display: flex;
+                align-items: center;
+                width: 40%;
+            }
+
+            #search-input {
+                width: 80%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            #search-form button {
+                background: none;
+                border: none;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            /* Modal styles */
+            .search-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            }
+
+            .search-modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 10px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            text-align: center;
+            }
+
+            .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            }
+
+            .search-input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            }
+
+            .search-submit {
+            margin-top: 10px;
+            padding: 8px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            }
+
+            .search-icon-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            }
+
+            .search-icon-image {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            transition: transform 0.2s;
+            }
+
+            .search-icon-image:hover {
+            transform: scale(1.15);
+            }
+
+            .login-icon-image {
+                width: 25px;
+                height: 25px;
+                display: flex;
+                transition: transform 0.2s;
+            }
+
+            .login-icon-image:hover {
+            transform: scale(1.15);
+            }
+
+            .cart-icon-image {
+                width: 25px;
+                height: 25px;
+                display: flex;
+                transition: transform 0.2s;
+            }
+
+            .cart-icon-image:hover {
+            transform: scale(1.15);
+            }
+
+            .top-bar-links a {
+                display: inline-block;
+                padding-left: 10px;
+                margin-left: 20px;
+                text-decoration: none;
+                color: black;
+                transition: color 0.3s;
+            }
+
+            .top-bar-links a:hover {
+                color: gray;
+            }
+
+            /* Styles for smaller screens (Phones & Tablets) */
+            @media (max-width: 768px) {
+                .top-bar {
+                    flex-direction: column;  /* Stack items vertically */
+                    align-items: center;
+                    padding: 10px;
+                }
+
+                .logo img {
+                    height: 30px; /* Smaller logo */
+                }
+
+                #search-form {
+                    width: 80%; /* Full width search bar */
+                    margin-top: 10px;
+                }
+
+                #search-input {
+                    padding: 6px;
+                }
+
+                .top-bar-links {
+                    margin-top: 10px;
+                    display: flex;
+                    gap: 15px;
+                }
+
+                .top-bar-links a {
+                    font-size: 14px; /* Smaller font */
+                }
+            }
+
+            .banner-img {
+                width: 100%;
+            }
+
+            .title {
+                font-family: 'Outfit', sans-serif;
+                font-weight: 500;
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
+        <div class="top-bar">
+        <div class="logo">
+            <a href="../../public/index.html"><img src="../../assets/images/logo.svg" alt="Logo"></a>
+        </div>
+        <button id="openSearchModal" class="search-icon-btn">
+          <img src="../../assets/images/search.png" alt="Search" class="search-icon-image">
+        </button>
+
+        <!-- Search Modal -->
+        <div id="searchModal" class="search-modal">
+          <div class="search-modal-content">
+            <span id="closeSearchModal" class="close-btn">&times;</span>
+            <input type="text" placeholder="Search..." class="search-input" />
+            <button class="search-submit">Search</button>
+          </div>
+        </div>
+        
+        <div class="top-bar-links">
+            <a href="../../pages/login:signup/login.html">
+              <img src="../../assets/images/user.png" alt="Login" class="login-icon-image">
+            </a>
+            <a href="../../pages/cart/cart.html">
+              <img src="../../assets/images/shopping-cart.png" alt="Cart" class="cart-icon-image">
+            </a>
+        </div>
+    </div>
+        <nav class="navbar">
+            <ul class="nav-menu">
+              <li class="nav-item">
+                <a href="#" class="nav-link">All Categories</a>
+                <div class="dropdown">
+                  <ul class="dropdown-menu">
+                    <li><a href="../../pages/stickers.html">Stickers</a></li>
+                    <li><a href="../../pages/cards.html">Cards</a></li>
+                    <li><a href="../../pages/prints.html">Prints</a></li>
+                    <li><a href="../../pages/sets.html">Sets</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="../../pages/newest.html" class="nav-link">Newest</a>
+              </li>
+              <li class="nav-item">
+                <a href="../../pages/stickers.html" class="nav-link">Stickers</a>
+              </li>
+              <li class="nav-item">
+                <a href="../../pages/cards.html" class="nav-link">Cards</a>
+              </li>
+              <li class="nav-item">
+                <a href="../../pages/about.html" class="nav-link">About</a>
+              </li>
+            </ul>
+        </nav>
+
+        <h1 class="title">Cart</h1>
     </body>
 </html>
