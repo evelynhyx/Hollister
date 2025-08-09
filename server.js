@@ -14,7 +14,7 @@ const server = http.createServer(app);
 // Middleware
 app.use(cors()); // Allows frontend to access backend
 app.use(express.json());
-app.use(express.static("public")); // Serve static files (HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files (HTML, CSS, JS)
 
 // MySQL Connection
 const db = mysql.createConnection({

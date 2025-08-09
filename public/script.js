@@ -51,21 +51,44 @@ function displayCustomers(customers) {
     });
 }
 
-const openBtn = document.getElementById("openSearchModal");
-const closeBtn = document.getElementById("closeSearchModal");
-const modal = document.getElementById("searchModal");
+// const openBtn = document.getElementById("openSearchModal");
+// const closeBtn = document.getElementById("closeSearchModal");
+// const modal = document.getElementById("searchModal");
 
-openBtn.addEventListener("click", () => {
-  modal.style.display = "block";
+document.addEventListener("DOMContentLoaded", () => {
+  const openBtn = document.getElementById("login-form");
+  if (openBtn) {
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "block";
+    });
+  }
 });
 
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
+// openBtn.addEventListener("click", () => {
+//   modal.style.display = "block";
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.getElementById("closeSearchModal");
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
 });
 
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+// closeBtn.addEventListener("click", () => {
+//   modal.style.display = "none";
+// });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("searchModal");
+  if (modal) {
+    window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
   }
 });
 
@@ -152,15 +175,9 @@ window.addEventListener("click", (e) => {
 //   res.json({ total: total.toFixed(2) });
 // });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
-
 const productData = {
-  name: 'Notebook',
-  price: 5.99
+  name: 'Bunny Plushie',
+  price: 8.00
 };
 
 // document.getElementById('product-name').textContent = productData.name;
@@ -190,3 +207,20 @@ const productData = {
 //     alert('Error adding to cart: ' + error.message);
 //   }
 // }
+
+// scripts/include.js
+document.addEventListener("DOMContentLoaded", () => {
+  // Load header
+  fetch("../partials/header.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+    });
+
+  // Load footer
+  fetch("../partials/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+    });
+});
