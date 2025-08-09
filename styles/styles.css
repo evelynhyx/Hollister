@@ -18,6 +18,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+#header, #footer {
+    display: block;
+    min-height: 50px;
+}
+
 .navbar {
     background: white;
     padding: 10px 20px;
@@ -356,4 +361,101 @@ body {
 
 .addToCartButton:hover {
   border-color: #811112; /* Just change the color, not the width */
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6; /* Light gray border */
+}
+
+.cart-table th {
+    background-color: #e9ecef; /* Light gray header */
+    font-weight: bold;
+}
+
+.cart-table .item-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.cart-table .quantity {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ced4da; /* Light gray border */
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cart-table button {
+    padding: 5px 10px;
+    background-color: #dc3545; /* Red for remove */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-table button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.cart-summary {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.cart-summary p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.cart-summary .total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cart-actions {
+    text-align: right;
+}
+
+.cart-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff; /* Blue for primary actions */
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.cart-actions button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.cart-actions button:disabled {
+    background-color: #6c757d; /* Gray when disabled */
+    cursor: not-allowed;
+}
+
+#empty-cart-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#empty-cart-message p {
+    font-size: 16px;
 }
