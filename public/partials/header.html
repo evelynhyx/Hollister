@@ -1,69 +1,59 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../styles/styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-        <title>Header</title>
-    </head> -->
-    <header>
-        <div class="top-bar">
-            <div class="logo">
-                <a href="../index.html"><img src="../../assets/images/logo.svg" alt="Logo"></a>
-            </div>
-            <button id="openSearchModal" class="search-icon-btn">
-            <img src="../../assets/images/search.png" alt="Search" class="search-icon-image">
-            </button>
+<header class="header">
+  <div class="top-bar">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../assets/images/logo.svg" alt="Logo" />
+      </a>
+    </div>
 
-            <!-- Search Modal -->
-            <div id="searchModal" class="search-modal">
-                <div class="search-modal-content">
-                    <span id="closeSearchModal" class="close-btn">&times;</span>
-                    <input type="text" placeholder="Search..." class="search-input" />
-                    <button class="search-submit">Search</button>
-                </div>
-            </div>
-                
-            <div class="top-bar-links">
-                <a href="../../pages/login:signup/login.html">
-                    <img src="../../assets/images/user.png" alt="Login" class="login-icon-image">
-                </a>
-                <a href="../../pages/cart/cart.html">
-                    <svg class="cart-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
-                </svg>
-                <span>0</span>
-                </a>
-            </div>
+    <!-- Search Button -->
+    <button id="openSearchModal" class="search-icon-btn">
+      <img src="../assets/images/search.png" alt="Search" class="search-icon-image" />
+    </button>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+      <div class="search-modal-content">
+        <span id="closeSearchModal" class="close-btn">&times;</span>
+        <input type="text" placeholder="Search..." class="search-input" />
+        <button class="search-submit">Search</button>
+      </div>
+    </div>
+
+    <!-- Top Bar Links -->
+    <div class="top-bar-links">
+      <a href="../pages/login:signup/login.html">
+        <img src="../assets/images/user.png" alt="Login" class="login-icon-image" />
+      </a>
+      <a href="../pages/cart/cart.html" class="cart-link">
+        <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+        </svg>
+        <span class="cart-count">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="#" class="nav-link">All Categories</a>
+        <div class="dropdown">
+          <ul class="dropdown-menu">
+            <li><a href="../pages/stickers.html">Stickers</a></li>
+            <li><a href="../pages/cards.html">Cards</a></li>
+            <li><a href="../pages/prints.html">Prints</a></li>
+            <li><a href="../pages/sets.html">Sets</a></li>
+          </ul>
         </div>
-        <nav class="navbar">
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#" class="nav-link">All Categories</a>
-                    <div class="dropdown">
-                        <ul class="dropdown-menu">
-                            <li><a href="../../pages/stickers.html">Stickers</a></li>
-                            <li><a href="../../pages/cards.html">Cards</a></li>
-                            <li><a href="../../pages/prints.html">Prints</a></li>
-                            <li><a href="../../pages/sets.html">Sets</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="../../pages/newest.html" class="nav-link">Newest</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../../pages/stickers.html" class="nav-link">Stickers</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../../pages/cards.html" class="nav-link">Cards</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../../pages/about.html" class="nav-link">About</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <!-- <script src="../script.js" defer></script>
-</html> -->
+      </li>
+      <li class="nav-item"><a href="../pages/newest.html" class="nav-link">Newest</a></li>
+      <li class="nav-item"><a href="../pages/stickers.html" class="nav-link">Stickers</a></li>
+      <li class="nav-item"><a href="../pages/cards.html" class="nav-link">Cards</a></li>
+      <li class="nav-item"><a href="../pages/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+</header>

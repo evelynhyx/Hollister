@@ -16,11 +16,34 @@ th {
 
 body {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding-top: 120px;
 }
 
-#header, #footer {
+.header, .footer {
     display: block;
     min-height: 50px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #333;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.footer a {
+  color: #811112;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
 
 .navbar {
