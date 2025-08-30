@@ -1,28 +1,3 @@
-/* document.getElementById("loadCustomers").addEventListener("click", fetchCustomers)
-function fetchCustomers() {
-    console.log("fetchCustomers");
-    fetch("http://localhost:3000/customers")  // Fetch from backend
-        .then(response => response.json())  // Convert response to JSON
-        .then(data => {
-            console.log("Customers:", data);  // Debugging
-            const tableBody = document.getElementById("customersTable").getElementsByTagName("tbody")[0];
-        
-            // Clear existing rows
-            tableBody.innerHTML = "";
-        
-            // Loop through customers and create table rows
-            data.forEach(customer => {
-                let row = tableBody.insertRow();
-                row.insertCell(0).innerText = customer.customer_id;
-                row.insertCell(1).innerText = customer.first_name;
-                row.insertCell(2).innerText = customer.last_name;
-                row.insertCell(3).innerText = customer.email;
-                row.insertCell(4).innerText = customer.creation_date;
-            });
-        })
-        .catch(error => console.error("Error fetching customers:", error));
-} */
-
 const socket = new WebSocket("ws://localhost:7687");
 
 socket.onopen = () => {
@@ -51,10 +26,6 @@ function displayCustomers(customers) {
     });
 }
 
-// const openBtn = document.getElementById("openSearchModal");
-// const closeBtn = document.getElementById("closeSearchModal");
-// const modal = document.getElementById("searchModal");
-
 document.addEventListener("DOMContentLoaded", () => {
   const openBtn = document.getElementById("login-form");
   if (openBtn) {
@@ -64,10 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// openBtn.addEventListener("click", () => {
-//   modal.style.display = "block";
-// });
-
 document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("closeSearchModal");
   if (closeBtn) {
@@ -76,10 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-// closeBtn.addEventListener("click", () => {
-//   modal.style.display = "none";
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("searchModal");
@@ -207,22 +170,3 @@ const productData = {
 //     alert('Error adding to cart: ' + error.message);
 //   }
 // }
-
-// scripts/include.js
-// document.addEventListener("DOMContentLoaded", () => {
-//   // Load header
-//   fetch("../partials/header.html")
-//     .then(res => res.text())
-//     .then(data => {
-//       document.getElementById("header").innerHTML = data;
-//     })
-//     .catch(err => console.error("Header load error:", err));
-
-//   // Load footer
-//   fetch("../partials/footer.html")
-//     .then(res => res.text())
-//     .then(data => {
-//       document.getElementById("footer").innerHTML = data;
-//     })
-//     .catch(err => console.error("Footer load error:", err));
-// });
