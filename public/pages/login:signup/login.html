@@ -193,7 +193,7 @@
               Don't have an account? <a href="../login:signup/signup.html">Sign up</a>
             </p>
             <br>
-            <a href="../../public/index.html" class="back">Back</a>
+            <a href="../../index.html" class="back">Back</a>
           </div>
 
           <script>
@@ -248,7 +248,7 @@
 
                       const result = await response.json();
                     if (response.ok) {
-                      window.location.href = '../../public/index.html'; // Redirect to homepage on success
+                      window.location.href = '../../index.html'; // Redirect to homepage on success
                     } else {
                       errorMessage.textContent = result.error || 'Invalid email or password';
                       errorMessage.style.display = 'block';
@@ -260,19 +260,6 @@
                     button.disabled = false;
                     button.textContent = 'Login';
                   }
-
-                      /* if (response.ok) {
-                        // Login successful — redirect or store data as needed
-                        alert("Login successful!");
-                        window.location.href = "../../public/index.html";
-                      } else {
-                        // Display error message
-                        errorMessage.textContent = result.message;
-                      }
-                    } catch (error) {
-                      console.error("Login error:", error);
-                      errorMessage.textContent = "An error occurred. Please try again.";
-                    } */
                   });
           </script>
     </body>

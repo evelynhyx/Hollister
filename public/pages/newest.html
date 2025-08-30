@@ -8,59 +8,7 @@
         <title>Newest</title>
     </head>
     <body>
-        <div class="top-bar">
-        <div class="logo">
-            <a href="../public/index.html"><img src="../assets/images/logo.svg" alt="Logo"></a>
-        </div>
-        <button id="openSearchModal" class="search-icon-btn">
-          <img src="../assets/images/search.png" alt="Search" class="search-icon-image">
-        </button>
-
-        <!-- Search Modal -->
-        <div id="searchModal" class="search-modal">
-          <div class="search-modal-content">
-            <span id="closeSearchModal" class="close-btn">&times;</span>
-            <input type="text" placeholder="Search..." class="search-input" />
-            <button class="search-submit">Search</button>
-          </div>
-        </div>
-        
-        <div class="top-bar-links">
-            <a href="../pages/login:signup/login.html">
-              <img src="../assets/images/user.png" alt="Login" class="login-icon-image">
-            </a>
-            <a href="../pages/cart/cart.html">
-              <img src="../assets/images/shopping-cart.png" alt="Cart" class="cart-icon-image">
-            </a>
-        </div>
-    </div>
-        <nav class="navbar">
-            <ul class="nav-menu">
-              <li class="nav-item">
-                <a href="#" class="nav-link">All Categories</a>
-                <div class="dropdown">
-                  <ul class="dropdown-menu">
-                    <li><a href="../pages/stickers.html">Stickers</a></li>
-                    <li><a href="../pages/cards.html">Cards</a></li>
-                    <li><a href="../pages/prints.html">Prints</a></li>
-                    <li><a href="../pages/sets.html">Sets</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/newest.html" class="nav-link">Newest</a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/stickers.html" class="nav-link">Stickers</a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/cards.html" class="nav-link">Cards</a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/about.html" class="nav-link">About</a>
-              </li>
-            </ul>
-        </nav>
+        <div id="header"></div>
 
         <h1 class="title">Newest</h1>
 
@@ -127,6 +75,7 @@
           </div>
         </div>
 
-        <script src="script.js"></script>
+        <div id="footer"></div>
+        <script type="module" src="../scripts/helper.js" defer></script>
     </body>
 </html>
