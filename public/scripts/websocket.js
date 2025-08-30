@@ -23,7 +23,7 @@ function fetchCustomers() {
         .catch(error => console.error("Error fetching customers:", error));
 } */
 
-const socket = new WebSocket("ws://localhost:3000");
+const socket = new WebSocket("ws://localhost:7687");
 
 socket.onopen = () => {
     console.log("Connected to WebSocket server");

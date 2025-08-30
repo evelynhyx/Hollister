@@ -1,23 +1,23 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/styles.css">
+        <link rel="stylesheet" href="styles/styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
         <title>Hollister</title>
     </head>
     <body>
         <div id="header"></div>
         <script>
-          document.addEventListener("DOMContentLoaded", () => {
-          // Load header
-          fetch("partials/header.html", { mode: 'no-cors' })
-            .then(res => res.text())
-            .then(data => {
-              document.getElementById("header").innerHTML = data;
-            })
-            .catch(err => console.error("Header load error:", err));
+          // document.addEventListener("DOMContentLoaded", () => {
+          // // Load header
+          // fetch("partials/header.html", { mode: 'no-cors' })
+          //   .then(res => res.text())
+          //   .then(data => {
+          //     document.getElementById("header").innerHTML = data;
+          //   })
+          //   .catch(err => console.error("Header load error:", err));
 
           // // Load footer
           // fetch("../partials/footer.html")
@@ -26,7 +26,7 @@
           //     document.getElementById("footer").innerHTML = data;
           //   })
           //   .catch(err => console.error("Footer load error:", err));
-        });
+        // });
         </script>
 
         <img src="https://images.pexels.com/photos/53874/pexels-photo-53874.jpeg?cs=srgb&dl=pexels-punttim-53874.jpg&fm=jpg" alt="Stationary" class="banner-img">
@@ -35,31 +35,31 @@
 
         <div class="products">
           <div class="product-box">
-            <img src="../assets/images/bunny-temp.jpg" alt="Product 1" class="product-image">
+            <img src="./assets/images/bunny-temp.jpg" alt="Product 1" class="product-image">
             <p class="product-name">Bunny Plushie</p>
             <p class="product-cost">$8.00</p>
             <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
           </div>
           <div class="product-box">
-            <img src="../assets/images/hotdog-temp.avif" alt="Product 2" class="product-image">
+            <img src="./assets/images/hotdog-temp.avif" alt="Product 2" class="product-image">
             <p class="product-name">Hotdog Plushie</p>
             <p class="product-cost">$8.00</p>
             <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
           </div>
           <div class="product-box">
-            <img src="../assets/images/turtle-temp.jpg" alt="Product 3" class="product-image">
+            <img src="./assets/images/turtle-temp.jpg" alt="Product 3" class="product-image">
             <p class="product-name">Turtle Plushie</p>
             <p class="product-cost">$8.00</p>
             <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
           </div>
           <div class="product-box">
-            <img src="../assets/images/dragon-temp.webp" alt="Product 4" class="product-image">
+            <img src="./assets/images/dragon-temp.webp" alt="Product 4" class="product-image">
             <p class="product-name">Dragon Plushie</p>
             <p class="product-cost">$8.00</p>
             <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
           </div>
           <div class="product-box">
-            <img src="../assets/images/sun-temp.webp" alt="Product 5" class="product-image">
+            <img src="./assets/images/sun-temp.webp" alt="Product 5" class="product-image">
             <p class="product-name">Sun Plushie</p>
             <p class="product-cost">$8.00</p>
             <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
@@ -85,7 +85,7 @@
         </table> -->
 
         <div id="footer"></div>
-        <script src="./scripts/websocket.js" defer></script>
-        <!-- <script src="./scripts/helper.js" defer></script> -->
+        <script src="/scripts/websocket.js" defer></script>
+        <script type="module" src="/scripts/helper.js" defer></script>
     </body>
 </html>
