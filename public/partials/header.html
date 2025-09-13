@@ -1,4 +1,4 @@
-<header class="header">
+<!-- <header class="header"> -->
   <div class="top-bar">
     <!-- Logo -->
     <div class="logo">
@@ -7,10 +7,25 @@
       </a>
     </div>
 
-    <!-- Search Button -->
-    <button id="openSearchModal" class="search-icon-btn">
-      <img src="../assets/images/search.png" alt="Search" class="search-icon-image" />
-    </button>
+    <!-- Top Bar Links -->
+    <div class="top-bar-links">
+      <!-- Search Button -->
+      <button id="openSearchModal" class="icon-btn">
+        <img src="../assets/images/search.png" alt="Search" class="icon-img" />
+      </button>
+      <!-- Sign Up/Login -->
+      <a href="../pages/login:signup/login.html" class="icon-btn">
+        <img src="../assets/images/user.png" alt="Login" class="icon-img" />
+      </a>
+      <!-- Cart -->
+      <a href="../pages/cart/cart.html" class="icon-btn">
+        <svg class="icon-btn" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
+            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
+        </svg>
+        <!-- <span class="cart-count">0</span> -->
+      </a>
+    </div>
 
     <!-- Search Modal -->
     <div id="searchModal" class="search-modal">
@@ -20,21 +35,6 @@
         <button class="search-submit">Search</button>
       </div>
     </div>
-
-    <!-- Top Bar Links -->
-    <div class="top-bar-links">
-      <a href="../pages/login:signup/login.html">
-        <img src="../assets/images/user.png" alt="Login" class="login-icon-image" />
-      </a>
-      <a href="../pages/cart/cart.html" class="cart-link">
-        <svg class="cart-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 28 28">
-          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"
-            d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312" />
-        </svg>
-        <span class="cart-count">0</span>
-      </a>
-    </div>
-  </div>
 
   <!-- Navbar -->
   <nav class="navbar">
@@ -56,4 +56,4 @@
       <li class="nav-item"><a href="../pages/about.html" class="nav-link">About</a></li>
     </ul>
   </nav>
-</header>
+<!-- </header> -->
