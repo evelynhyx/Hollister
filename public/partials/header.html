@@ -1,4 +1,4 @@
-<!-- <header class="header"> -->
+<header class="header">
   <div class="top-bar">
     <!-- Logo -->
     <div class="logo">
@@ -7,14 +7,18 @@
       </a>
     </div>
 
+    <!-- Search Button -->
+      <div class="search-bar">
+        <input class="search-input" type="text" placeholder="Search">
+        <button id="search-btn" class="icon-btn">
+          <svg class="icon-btn" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
+          </svg>
+        </button>
+      </div>
+
     <!-- Top Bar Links -->
     <div class="top-bar-links">
-      <!-- Search Button -->
-      <button id="openSearchModal" class="icon-btn">
-        <svg class="icon-btn" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
-        </svg>
-      </button>
       <!-- Sign Up/Login -->
       <a href="../pages/login:signup/login.html" class="icon-btn">
         <svg class="icon-btn" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -29,15 +33,6 @@
         </svg>
         <!-- <span class="cart-count">0</span> -->
       </a>
-    </div>
-
-    <!-- Search Modal -->
-    <div id="searchModal" class="search-modal">
-      <div class="search-modal-content">
-        <span id="closeSearchModal" class="close-btn">&times;</span>
-        <input type="text" placeholder="Search..." class="search-input" />
-        <button class="search-submit">Search</button>
-      </div>
     </div>
   </div>
 
@@ -61,4 +56,4 @@
       <li class="nav-item"><a href="../pages/about.html" class="nav-link">About</a></li>
     </ul>
   </nav>
-<!-- </header> -->
+</header>
