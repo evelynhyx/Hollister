@@ -1,4 +1,15 @@
-const public_key = "pk_test_51SbQDGKeNxEzQYrTQo8o1uiROb3Z1Am8ka7s9gZoCXd8bCo6uVgULnBgT28vUgsbZHdYYkkDR89PZsIyM5hWHt8A00Co1mad4l";
+let stripe;
+
+initialize();
+
+async function initialize() {
+  const response = await fetch("/config");
+  const { publicKey } = await response.json();
+
+  stripe = Stripe(publicKey);
+
+  checkStatus();
+}
 
 // ------- UI Resources -------
 const SuccessIcon =
@@ -55,7 +66,7 @@ function setPaymentDetails(intent) {
   document.querySelector("#status-text").textContent= statusText;
   document.querySelector("#intent-id").textContent = intent.id;
   document.querySelector("#intent-status").textContent = intent.status;
-  document.querySelector("#view-details").href = `https://dashboard.stripe.com/payments/${intent.id}`;
+  document.querySelector("#view-details").href = `https://dashboard.stripe.com/test/payments/${intent.id}`;
 }
 
 function setErrorState() {
@@ -65,9 +76,6 @@ function setErrorState() {
   document.querySelector("#details-table").classList.add("hidden");
   document.querySelector("#view-details").classList.add("hidden");
 }
-
-// Stripe.js instance
-const stripe = Stripe(public_key);
 
 checkStatus();
 

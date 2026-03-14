@@ -1,6 +1,3 @@
-// This is your test publishable API key.
-const stripe = Stripe("pk_test_51SbQDGKeNxEzQYrTQo8o1uiROb3Z1Am8ka7s9gZoCXd8bCo6uVgULnBgT28vUgsbZHdYYkkDR89PZsIyM5hWHt8A00Co1mad4l");
-
 // The items the customer wants to buy
 const items = [{ id: "xl-tshirt", amount: 1000 }];
 
@@ -12,37 +9,37 @@ document
   .querySelector("#payment-form")
   .addEventListener("submit", handleSubmit);
 
-// Fetches a payment intent and captures the client secret
 async function initialize() {
-  // const response = await fetch("/create-payment-intent", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({ items }),
-  // });
-
   try {
-      console.log("1");
-      const response = await fetch("/create-payment-intent", {
+    // 1. Get public key from backend
+    const configResponse = await fetch("/config");
+    const config = await configResponse.json();
+
+    const stripe = Stripe(config.publicKey);
+
+    // 2. Create PaymentIntent
+    const response = await fetch("/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items }),
     });
+
     const { clientSecret } = await response.json();
-    console.log("clientSecret", clientSecret);  
-    const appearance = {
-      theme: 'stripe',
-    };
+
+    const appearance = { theme: "stripe" };
+
     elements = stripe.elements({ appearance, clientSecret });
-    console.log("elements", elements);
 
-    const paymentElementOptions = {
+    const paymentElement = elements.create("payment", {
       layout: "accordion",
-    };
+    });
 
-    const paymentElement = elements.create("payment", paymentElementOptions);
     paymentElement.mount("#payment-element");
+
+    // Make stripe available globally for handleSubmit
+    window.stripe = stripe;
+
   } catch (e) {
-    // res.status(400).send({ error: e.message });
     console.log("error", e);
   }
 }
@@ -51,7 +48,7 @@ async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
 
-  const { error } = await stripe.confirmPayment({
+  const { error } = await window.stripe.confirmPayment({
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page

@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const http = require("http");
 const WebSocket = require("ws");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 7687;
@@ -102,7 +103,14 @@ wss.on("connection", ws => {
 //   allowedHeaders: ["Content-Type"],
 // }));
 // This is your test secret API key.
+
 const stripe = require("stripe")(process.env.CLIENT_KEY);
+
+app.get("/config", (req, res) => {
+  res.json({
+    publicKey: process.env.PUBLIC_KEY,
+  });
+});
 
 app.use(express.static("public"));
 app.use(express.json());

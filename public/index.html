@@ -15,39 +15,40 @@
         <h1 class="title">Featured</h1>
 
         <div class="products">
-          <div class="product-box">
+          <div class="product-box" data-product-id="bunny-plushie">
             <img src="./assets/images/bunny-temp.jpg" alt="Product 1" class="product-image">
             <p class="product-name">Bunny Plushie</p>
             <p class="product-cost">$8.00</p>
-            <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
+            <button class="addToCartButton" onclick="addToCart(event)">Add to Cart</button>
           </div>
-          <div class="product-box">
+          <div class="product-box" data-product-id="hotdog-plushie">
             <img src="./assets/images/hotdog-temp.avif" alt="Product 2" class="product-image">
             <p class="product-name">Hotdog Plushie</p>
             <p class="product-cost">$8.00</p>
-            <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
+            <button class="addToCartButton" onclick="addToCart(event)">Add to Cart</button>
           </div>
-          <div class="product-box">
+          <div class="product-box" data-product-id="turtle-plushie">
             <img src="./assets/images/turtle-temp.jpg" alt="Product 3" class="product-image">
             <p class="product-name">Turtle Plushie</p>
             <p class="product-cost">$8.00</p>
-            <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
+            <button class="addToCartButton" onclick="addToCart(event)">Add to Cart</button>
           </div>
-          <div class="product-box">
+          <div class="product-box" data-product-id="dragon-plushie">
             <img src="./assets/images/dragon-temp.webp" alt="Product 4" class="product-image">
             <p class="product-name">Dragon Plushie</p>
             <p class="product-cost">$8.00</p>
-            <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
+            <button class="addToCartButton" onclick="addToCart(event)">Add to Cart</button>
           </div>
-          <div class="product-box">
+          <div class="product-box" data-product-id="sun-plushie">
             <img src="./assets/images/sun-temp.webp" alt="Product 5" class="product-image">
             <p class="product-name">Sun Plushie</p>
             <p class="product-cost">$8.00</p>
-            <button class="addToCartButton" onclick="addToCart()">Add to Cart</button>
+            <button class="addToCartButton" onclick="addToCart(event)">Add to Cart</button>
           </div>
         </div>
 
         <div id="footer"></div>
+        <script src="/scripts/cart.js" defer></script>
         <script src="/scripts/websocket.js" defer></script>
         <script type="module" src="/scripts/helper.js" defer></script>
     </body>
