@@ -92,18 +92,6 @@ wss.on("connection", ws => {
     });
 });
 
-// const cors = require("cors");
-// app.use(cors({
-//   origin: [
-//     "http://localhost:5500", // Live Server
-//     "http://localhost:3000", // React / Vite (if you use it later)
-//     "http://127.0.0.1:5500"
-//   ],
-//   methods: ["POST", "GET"],
-//   allowedHeaders: ["Content-Type"],
-// }));
-// This is your test secret API key.
-
 const stripe = require("stripe")(process.env.CLIENT_KEY);
 
 app.get("/config", (req, res) => {
@@ -143,8 +131,6 @@ app.post("/create-payment-intent", async (req, res) => {
     publishableKey: process.env.PUBLIC_KEY,
   });
 });
-
-// app.listen(4242, () => console.log("Node server listening on port 4242!"));
 
 // Start Server
 server.listen(PORT, () => {
