@@ -236,63 +236,51 @@ class ShoppingCart {
     });
 
     // Wire up cart icon in navbar to open modal
-    this.setupCartIconListener();
-  }
+      this.setupCartIconListener();
+    }
 
-  // Setup cart icon click to open modal
-  setupCartIconListener() {
-    // Find the cart icon in the header
-    // The cart icon is the second .icon-btn with an SVG (after the login icon)
-    const topBarLinks = document.querySelector('.top-bar-links');
-    
-    if (topBarLinks) {
-      const cartLink = topBarLinks.querySelectorAll('a.icon-btn')[1]; // Get the 2nd link (cart)
-      
-      if (cartLink) {
-        // Prevent default navigation and open modal instead
-        cartLink.addEventListener('click', (e) => {
-          e.preventDefault();
+    // Show the cart modal
+    showCartModal() {
+      const modal = document.getElementById('cart-modal');
+      modal.classList.add('active');
+    }
+
+    // Hide the cart modal
+    hideCartModal() {
+      const modal = document.getElementById('cart-modal');
+      modal.classList.remove('active');
+    }
+
+    // Setup cart icon click to open modal
+    setupCartIconListener() {
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#cart-icon-btn')) {
           this.showCartModal();
-        });
-      }
+        }
+      });
     }
   }
 
-  // Show the cart modal
-  showCartModal() {
-    const modal = document.getElementById('cart-modal');
-    modal.classList.add('active');
-  }
-
-  // Hide the cart modal
-  hideCartModal() {
-    const modal = document.getElementById('cart-modal');
-    modal.classList.remove('active');
-  }
-}
-
-// Initialize cart when DOM is ready
-let shoppingCart;
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize cart when DOM is ready
+  let shoppingCart;
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      shoppingCart = new ShoppingCart();
+    });
+  } else {
     shoppingCart = new ShoppingCart();
-  });
-} else {
-  shoppingCart = new ShoppingCart();
-}
+  }
 
-// ============================================
-// ADD TO CART FUNCTION - Call this from your buttons
-// ============================================
-function addToCart(event) {
-  // Get the product box
-  const productBox = event.target.closest('.product-box');
-  
-  // Extract product details
-  const productName = productBox.querySelector('.product-name').textContent;
-  const productPrice = productBox.querySelector('.product-cost').textContent.replace('$', '');
-  const productId = productBox.dataset.productId || productName.toLowerCase().replace(/\s+/g, '-');
+  // Add to cart function
+  function addToCart(event) {
+    // Get the product box
+    const productBox = event.target.closest('.product-box');
+    
+    // Extract product details
+    const productName = productBox.querySelector('.product-name').textContent;
+    const productPrice = productBox.querySelector('.product-cost').textContent.replace('$', '');
+    const productId = productBox.dataset.productId || productName.toLowerCase().replace(/\s+/g, '-');
 
-  // Add to cart
-  shoppingCart.addToCart(productId, productName, productPrice);
-}
+    // Add to cart
+    shoppingCart.addToCart(productId, productName, productPrice);
+  }
